@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Lanche</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Nosso Lanche</h1>
+  </header>
+
+  <nav>
+    <button onclick="mostrarCategoria('hamburguer')">🍔 Hambúrgueres</button>
+    <button onclick="mostrarCategoria('hamburguerg')">🍔 Hambúrgueres Gourmet</button>
+    <button onclick="mostrarCategoria('batata')">🍟 Batatas</button>
+    <button onclick="mostrarCategoria('bebida')">🥤 Bebidas</button>
+    <button onclick="mostrarCategoria('combospromocionais')">🥤🍔🍟 Combos</button>
+    <button onclick="mostrarCategoria('macaxeira')">🥣 Macaxeira</button>
+    <button onclick="mostrarCategoria('cuscuz')">🌽 Cuscuz</button>
+    <button onclick="mostrarCategoria('pastel')"> 🥟 Pastel</button>
+    <button onclick="mostrarCategoria('baguete')"> 🥖 Baguete</button>
+    <button onclick="mostrarCategoria('acrescimo')"> + Acrecimos</button>
+  </nav>
+
+  <main>
+    <section id="cardapio"></section>
+
+    <aside id="carrinho">
+      <h2>🛒 Carrinho</h2>
+      <ul id="itens-carrinho"></ul>
+      <p id="total">Total: R$ 0,00</p>
+
+      <div class="dados-cliente">
+        <input type="text" id="nomeCliente" placeholder="Seu nome" required>
+        <input type="text" id="enderecoCliente" placeholder="Endereço para entrega" required>
+        <textarea id="obsCliente" placeholder="Observações (ex: sem cebola, troco, etc)"></textarea>
+
+        <select id="pagamentoCliente" onchange="mostrarCampoTroco()">
+          <option value="">Forma de pagamento</option>
+          <option value="PIX">PIX</option>
+          <option value="Dinheiro">Dinheiro</option>
+          <option value="Cartão">Cartão</option>
+        </select>
+
+        <!-- 🟢 Campo de troco (só aparece se for dinheiro) -->
+        <div id="campoTroco" style="display: none;">
+          <input type="text" id="trocoCliente" placeholder="Precisa de troco? Para quanto?">
+        </div>
+      </div>
+
+      <button id="finalizar">Finalizar pedido no WhatsApp</button>
+    </aside>
+  </main>
+
+  <script>
+    function mostrarCampoTroco() {
+      const pagamento = document.getElementById('pagamentoCliente').value;
+      const campoTroco = document.getElementById('campoTroco');
+      campoTroco.style.display = pagamento === 'Dinheiro' ? 'block' : 'none';
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

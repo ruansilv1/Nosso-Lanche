@@ -1,0 +1,220 @@
+/* ======== VARIÁVEIS ======== */
+:root {
+  --cor-cabecalho: #4b007d; /* roxo forte */
+  --cor-primaria: #ffffff; /* fundo dos cards e botões */
+  --cor-secundaria: #f5c400; /* amarelo vibrante */
+  --cor-fundo: #fbe9e7; /* laranja claro, mais suave para fundo */
+  --cor-texto: #000000;
+  --cor-botao-hover: #f5c400; 
+  --cor-botao-add: #8bc34a; 
+  --cor-botao-add-hover: #689f38;
+  --cor-carrinho-fundo: #fff3e0;
+  --cor-whatsapp: #25d366;
+  --cor-whatsapp-hover: #1ebc57;
+  --cor-borda: #ccc;
+  --sombra: rgba(0,0,0,0.15);
+}
+
+/* ======== BASE ======== */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--cor-fundo);
+  margin: 0;
+  padding: 0;
+  color: var(--cor-texto);
+}
+
+header {
+  background: var(--cor-cabecalho);
+  color: var(--cor-secundaria);
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  box-shadow: 0 3px 8px var(--sombra);
+}
+
+/* ======== NAV ======== */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cor-secundaria);
+  padding: 10px 0;
+}
+
+nav button {
+  background: var(--cor-primaria);
+  color: var(--cor-texto);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s all;
+}
+
+nav button:hover {
+  background: var(--cor-botao-hover);
+  transform: translateY(-2px);
+}
+
+/* ======== LAYOUT ======== */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ======== CARDÁPIO ======== */
+#cardapio {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  flex: 2;
+}
+
+.item {
+  background: var(--cor-primaria);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px var(--sombra);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px var(--sombra);
+}
+
+.item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.item p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.item button {
+  background: var(--cor-botao-add);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s all;
+}
+
+.item button:hover {
+  background: var(--cor-botao-add-hover);
+  transform: translateY(-1px);
+}
+
+/* ======== CARRINHO ======== */
+#carrinho {
+  background: var(--cor-carrinho-fundo);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 3px 10px var(--sombra);
+  flex-shrink: 0;
+}
+
+#carrinho h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#itens-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#itens-carrinho li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#itens-carrinho li button {
+  background: #f44336;
+  color: #fff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s all;
+}
+
+#itens-carrinho li button:hover {
+  background: #d32f2f;
+}
+
+/* ======== DADOS CLIENTE ======== */
+.dados-cliente input, 
+.dados-cliente textarea,
+.dados-cliente select {
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  font-size: 14px;
+}
+
+#finalizar {
+  width: 100%;
+  background: var(--cor-whatsapp);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s all;
+}
+
+#finalizar:hover {
+  background: var(--cor-whatsapp-hover);
+  transform: translateY(-2px);
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #carrinho {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  #cardapio {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  nav button {
+    width: 100%;
+  }
+
+  .item {
+    width: 90%;
+  }
+}
